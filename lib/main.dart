@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: isDarkMode ? Brightness.dark : Brightness.light,
         appBarTheme: AppBarTheme(
             systemOverlayStyle: isDarkMode
                 ? SystemUiOverlayStyle.light
