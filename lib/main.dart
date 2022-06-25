@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterchallenge1/screens/login/login.dart';
 
 void main() {
@@ -11,11 +13,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = SchedulerBinding.instance.window.platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return MaterialApp(
-      themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+            systemOverlayStyle: isDarkMode
+                ? SystemUiOverlayStyle.light
+                : SystemUiOverlayStyle.dark),
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
